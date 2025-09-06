@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.jpeg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <title>BCG Case Studies Globe</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <h1 class="title">BCG Case Studies</h1>
+      <p class="subtitle">Interactive Global Business Insights</p>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+      Click on the markers to explore case studies • Drag to rotate the globe
+    </div>
+
+    <!-- Topic Legend -->
+    <div class="case-indicators">
+      <div class="topic-legend">
+        <h4>Case Topics</h4>
+        <div class="legend-item">
+          <div class="legend-color strategy"></div>
+          <span>Strategy</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color operations"></div>
+          <span>Operations</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color technology"></div>
+          <span>Technology</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color marketing"></div>
+          <span>Marketing</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color finance"></div>
+          <span>Finance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Application Elements -->
+    <canvas class="webgl"></canvas>
+    
+    <!-- Case Study Display -->
+    <div class="textbox">
+      <h2 class="innertext">Select a case study</h2>
+    </div>
+    
+    <!-- Case Study Popup -->
+    <div id="caseBackdrop" class="case-backdrop" style="display: none;">
+      <div id="casePopupElement">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <div class="case-header">
+          <h2 id="caseTitle" class="case-title-text">Case: </h2>
+          <p id="caseLocation" class="case-location-text">Location: </p>
+          <div id="caseTopic" class="case-topic-badge">Topic</div>
+        </div>
+        <div class="case-content">
+          <div id="caseSummary" class="case-summary"></div>
+          <div id="caseDetails" class="case-details"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="loading-hidden">
+      <div class="loading-spinner"></div>
+      <span class="loading-text">Loading case studies...</span>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
