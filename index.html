@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.jpeg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
     <title>BCG Case Studies Globe</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <!-- Header -->
@@ -18,45 +22,71 @@
       Click on the markers to explore case studies • Drag to rotate the globe
     </div>
 
+    <!-- Left Panel -->
+    <aside class="sidebar">
+      <!-- Case Study Display -->
+      <div class="textbox">
+        <h2 class="innertext">Select a global trend</h2>
+      </div>
+
+      <!-- News Headlines Box -->
+      <div id="newsBox" class="news-box">
+        <div class="news-header">
+          <h3 class="news-title">Related Headlines</h3>
+          <button id="newsCloseBtn" class="icon-btn" aria-label="Close headlines">
+            &times;
+          </button>
+        </div>
+        <div id="newsContent" class="news-content">
+          <p class="news-placeholder">Select a trend to see headlines.</p>
+        </div>
+      </div>
+    </aside>
+
     <!-- Topic Legend -->
     <div class="case-indicators">
       <div class="topic-legend">
-        <h4>Case Topics</h4>
+        <h4>Global Trends</h4>
         <div class="legend-item">
-          <div class="legend-color strategy"></div>
-          <span>Strategy</span>
+          <div class="legend-color technological-advancements"></div>
+          <span>Technological Advancements</span>
         </div>
         <div class="legend-item">
-          <div class="legend-color operations"></div>
-          <span>Operations</span>
+          <div class="legend-color climate-change"></div>
+          <span>Climate Change</span>
         </div>
         <div class="legend-item">
-          <div class="legend-color technology"></div>
-          <span>Technology</span>
+          <div class="legend-color economic-uncertainty"></div>
+          <span>Economic Uncertainty</span>
         </div>
         <div class="legend-item">
-          <div class="legend-color marketing"></div>
-          <span>Marketing</span>
+          <div class="legend-color demographic-shifts"></div>
+          <span>Demographic Shifts</span>
         </div>
         <div class="legend-item">
-          <div class="legend-color finance"></div>
-          <span>Finance</span>
+          <div class="legend-color global-health"></div>
+          <span>Global Health</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color political-change"></div>
+          <span>Political Change</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color resource-scarcity"></div>
+          <span>Resource Scarcity</span>
         </div>
       </div>
     </div>
 
-    <!-- Main Application Elements -->
+    <!-- Main Globe -->
     <canvas class="webgl"></canvas>
-    
-    <!-- Case Study Display -->
-    <div class="textbox">
-      <h2 class="innertext">Select a case study</h2>
-    </div>
-    
-    <!-- Case Study Popup -->
+
+    <!-- Case Study Popup + Backdrop -->
     <div id="caseBackdrop" class="case-backdrop" style="display: none;">
       <div id="casePopupElement">
-        <button class="close-btn" id="closeBtn">&times;</button>
+        <button id="closeBtn" class="close-btn" aria-label="Close popup">
+          &times;
+        </button>
         <div class="case-header">
           <h2 id="caseTitle" class="case-title-text">Case: </h2>
           <p id="caseLocation" class="case-location-text">Location: </p>
@@ -71,11 +101,12 @@
 
     <!-- Loading Indicator -->
     <div id="loading-indicator" class="loading-hidden">
-      <div class="loading-spinner"></div>
+      <div class="spinner"></div>
       <span class="loading-text">Loading case studies...</span>
     </div>
 
     <!-- Scripts -->
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
+
