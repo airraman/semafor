@@ -28,6 +28,14 @@ html, body {
   color: white;
 }
 
+.logo {
+  height: 60px; /* Adjust height as needed */
+  width: auto; /* Maintains aspect ratio */
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); /* Subtle glow effect */
+  border-radius: 10px;
+}
+
 .title {
   font-size: 2rem;
   font-weight: 300;
@@ -39,6 +47,7 @@ html, body {
   font-size: 1rem;
   opacity: 0.8;
   font-weight: 300;
+  color: white;
 }
 
 /* Instructions */
@@ -68,7 +77,7 @@ html, body {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(6px);
   border-right: 1px solid rgba(255,255,255,0.15);
-  z-index: 900;
+  z-index: 1100;
 }
 
 /* Textbox */
@@ -199,6 +208,10 @@ html, body {
   z-index: 800;
 }
 
+.case-title{
+  margin-bottom: 2vh;
+}
+
 .topic-legend {
   background: rgba(0,0,0,0.7);
   padding: 1rem;
@@ -206,6 +219,7 @@ html, body {
   font-size: 0.8rem;
   border: 1px solid rgba(255,255,255,0.2);
   color: white;
+  /* margin-top: 5vh; */
 }
 .legend-item { display: flex; align-items: center; margin-bottom: 0.5rem; }
 .legend-color { width: 12px; height: 12px; border-radius: 50%; margin-right: 0.5rem; }

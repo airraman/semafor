@@ -512,15 +512,27 @@ function initializeApp() {
   }
 
   // Controls setup
+  // const controls = new OrbitControls(camera, canvas);
+  // controls.enableDamping = true;
+  // controls.enablePan = false;
+  // controls.enableZoom = false;
+  // controls.autoRotate = true;
+  // controls.autoRotateSpeed = 0.75;
+  // controls.rotateSpeed = 0.5;
+  // controls.minPolarAngle = Math.PI * 0.2;
+  // controls.maxPolarAngle = Math.PI * 0.8;
+
   const controls = new OrbitControls(camera, canvas);
-  controls.enableDamping = true;
-  controls.enablePan = false;
-  controls.enableZoom = false;
-  controls.autoRotate = true;
-  controls.autoRotateSpeed = 0.75;
-  controls.rotateSpeed = 0.5;
-  controls.minPolarAngle = Math.PI * 0.2;
-  controls.maxPolarAngle = Math.PI * 0.8;
+controls.enableDamping = true;
+controls.dampingFactor = 0.05; // Smoother damping
+controls.enablePan = false;
+controls.enableZoom = false;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.5; // Slower, more elegant
+controls.rotateSpeed = 0.3; // Gentler manual rotation
+controls.minPolarAngle = Math.PI * 0.15; // Slightly more restrictive
+controls.maxPolarAngle = Math.PI * 0.85;
+controls.inertia = 0.8; // Add momentum to rotation
 
   const raycaster = new THREE.Raycaster()
   let selectedMarker = null
