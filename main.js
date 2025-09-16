@@ -201,6 +201,82 @@ function initializeApp() {
   const caseDetails = document.querySelector('#caseDetails')
   const closeBtn = document.getElementById('closeBtn')
 
+  // =========================================
+// Email Form Setup
+// =========================================
+const emailForm = document.getElementById('emailForm');
+const emailInput = document.getElementById('emailInput');
+const emailMessage = document.getElementById('emailMessage');
+
+if (emailForm && emailInput && emailMessage) {
+  emailForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = emailInput.value.trim();
+    
+    if (!email) {
+      showEmailMessage('Please enter a valid email address.', 'error');
+      return;
+    }
+    
+    // Disable form during submission
+    emailInput.disabled = true;
+    const submitBtn = emailForm.querySelector('.email-submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+    
+    try {
+      // Simulate API call (replace with your actual endpoint)
+      await simulateEmailSubmission(email);
+      
+      // Success feedback
+      showEmailMessage('Thank you! We\'ll be in touch soon.', 'success');
+      emailInput.value = '';
+      
+    } catch (error) {
+      // Error feedback
+      showEmailMessage('Something went wrong. Please try again.', 'error');
+      console.error('Email submission error:', error);
+    } finally {
+      // Re-enable form
+      emailInput.disabled = false;
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+}
+
+function showEmailMessage(message, type) {
+  if (!emailMessage) return;
+  
+  emailMessage.textContent = message;
+  emailMessage.className = `email-message ${type}`;
+  emailMessage.style.display = 'block';
+  
+  // Hide message after 5 seconds
+  setTimeout(() => {
+    emailMessage.style.display = 'none';
+  }, 5000);
+}
+
+// Simulate email submission (replace with your actual API call)
+function simulateEmailSubmission(email) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // Replace this with your actual email submission logic
+      console.log('Email submitted:', email);
+      
+      // For demonstration, randomly succeed or fail
+      if (Math.random() > 0.1) { // 90% success rate
+        resolve();
+      } else {
+        reject(new Error('Simulated network error'));
+      }
+    }, 1000);
+  });
+}
+
   // helper to safely set style
   const safeSetDisplay = (el, value) => { if (el) el.style.display = value }
 
